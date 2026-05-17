@@ -1,8 +1,8 @@
 # Naming Convention — metaTools Reverse Foot Rigger
 
-This document explains the expected naming convention for the Reverse Foot Rigger.
+このドキュメントでは、Reverse Foot Riggerで想定している命名規則を説明します。
 
-The tool relies on strict side prefixes and pivot names. It receives the foot controller, IK joints, bind joints, and leg IK handle from UI text fields, but pivot names are constructed automatically from the limb side.
+このツールは、厳密なside prefixとpivot名に依存しています。foot controller、IK joints、bind joints、leg IK handleはUIのテキストフィールドから受け取りますが、pivot名はlimb sideから自動的に構築されます。
 
 ## Side Prefix
 
@@ -11,7 +11,7 @@ The tool relies on strict side prefixes and pivot names. It receives the foot co
 | Left | `L_` |
 | Right | `R_` |
 
-Example:
+例:
 
 ```text
 L_root_pivot
@@ -20,7 +20,7 @@ R_root_pivot
 
 ## Required Pivot Names
 
-For the left side:
+左側:
 
 ```text
 L_root_pivot
@@ -33,7 +33,7 @@ L_ankle_pivot
 L_toe_pivot
 ```
 
-For the right side:
+右側:
 
 ```text
 R_root_pivot
@@ -48,7 +48,7 @@ R_toe_pivot
 
 ## Required Pivot Hierarchy
 
-The tool expects this hierarchy:
+ツールは以下の階層を想定しています。
 
 ```text
 <side>_root_pivot
@@ -61,7 +61,7 @@ The tool expects this hierarchy:
                 └── <side>_toe_pivot
 ```
 
-Example left side:
+左側の例:
 
 ```text
 L_root_pivot
@@ -76,20 +76,20 @@ L_root_pivot
 
 ## Foot Controller
 
-The foot controller name is entered manually in the UI.
+フットコントローラー名はUIで手動入力します。
 
-Recommended naming:
+推奨命名:
 
 ```text
 L_ankle_IK_ctrl
 R_ankle_IK_ctrl
 ```
 
-The controller must contain all required reverse foot attributes.
+コントローラーには、必要な全てのreverse foot属性が含まれている必要があります。
 
 ## Required Foot Controller Attributes
 
-Animator-facing attributes:
+アニメーター向け属性:
 
 ```text
 Roll
@@ -99,7 +99,7 @@ HeelSway
 ToeTap
 ```
 
-Setting / tuning attributes:
+設定／調整用属性:
 
 ```text
 RollBack
@@ -109,7 +109,7 @@ ToeStraightAngle
 BankMultiplier
 ```
 
-`Roll` must have this range:
+`Roll` は以下の範囲を持つ必要があります。
 
 ```text
 minimum: -10
@@ -118,9 +118,9 @@ maximum: 20
 
 ## IK Foot Joints
 
-The IK foot joints are entered manually in the UI.
+IK foot jointsはUIで手動入力します。
 
-Recommended left-side naming:
+推奨される左側の命名:
 
 ```text
 L_ankle_IK
@@ -128,7 +128,7 @@ L_foot_IK
 L_tiptoe_IK
 ```
 
-Recommended right-side naming:
+推奨される右側の命名:
 
 ```text
 R_ankle_IK
@@ -136,7 +136,7 @@ R_foot_IK
 R_tiptoe_IK
 ```
 
-The expected order is:
+想定される順序:
 
 ```text
 ankle IK
@@ -146,9 +146,9 @@ toe IK
 
 ## Bind Foot Joints
 
-The bind foot joints are entered manually in the UI.
+bind foot jointsはUIで手動入力します。
 
-Recommended left-side naming:
+推奨される左側の命名:
 
 ```text
 L_ankle
@@ -156,7 +156,7 @@ L_foot
 L_tiptoe
 ```
 
-Recommended right-side naming:
+推奨される右側の命名:
 
 ```text
 R_ankle
@@ -164,7 +164,7 @@ R_foot
 R_tiptoe
 ```
 
-The expected order is:
+想定される順序:
 
 ```text
 ankle bind
@@ -172,16 +172,16 @@ ball bind
 toe bind
 ```
 
-The IK joint and bind joint at the same position must be separate objects.
+同じ位置にあるIKジョイントとbindジョイントは、別々のオブジェクトである必要があります。
 
-Invalid example:
+無効な例:
 
 ```text
 Ankle IK:   L_ankle
 Ankle Bind: L_ankle
 ```
 
-Valid example:
+有効な例:
 
 ```text
 Ankle IK:   L_ankle_IK
@@ -190,22 +190,22 @@ Ankle Bind: L_ankle
 
 ## Leg IK Handle
 
-The main leg RP IK handle is entered manually in the UI.
+メインの脚RP IKハンドルはUIで手動入力します。
 
-Recommended naming:
+推奨命名:
 
 ```text
 L_Leg_RP_ikHandle
 R_Leg_RP_ikHandle
 ```
 
-This IK handle must already exist before running the reverse foot tool.
+このIKハンドルは、reverse footツールを実行する前に既に存在している必要があります。
 
 ## Generated Utility Node Names
 
-The tool creates nodes using the side prefix.
+ツールはside prefixを使用してノードを作成します。
 
-For left side:
+左側:
 
 ```text
 L_footRoll_ball_condition
@@ -227,13 +227,13 @@ L_ball_ikHandle
 L_toe_ikHandle
 ```
 
-Right side uses `R_` instead.
+右側では `R_` を使用します。
 
-The tool will stop if any generated node already exists.
+生成されるノード名が既に存在している場合、ツールは停止します。
 
 ## Rotation Axis Convention
 
-The current setup assumes:
+現在のセットアップでは、以下の軸を前提としています。
 
 | Motion | Axis |
 |---|---|
@@ -244,15 +244,15 @@ The current setup assumes:
 
 ## Quick Pre-flight Checklist
 
-Before pressing **Build Reverse Foot Rig**, confirm:
+**Build Reverse Foot Rig** を押す前に、以下を確認してください。
 
-- Pivot names match the selected side.
-- Pivot hierarchy is correct.
-- Pivot rotate channels are unlocked.
-- Pivot rotate channels have no incoming connections.
-- Foot controller has all required attributes.
-- `Roll` has range `-10` to `20`.
-- IK foot joints exist.
-- Bind foot joints exist.
-- IK and bind joints are not the same objects.
-- Main leg RP IK handle exists.
+- Pivot名が選択したsideと一致している。
+- Pivot階層が正しい。
+- Pivotのrotateチャンネルがロックされていない。
+- Pivotのrotateチャンネルに入力接続がない。
+- Foot controllerに全ての必須属性がある。
+- `Roll` の範囲が `-10` から `20` である。
+- IK foot jointsが存在している。
+- Bind foot jointsが存在している。
+- IK jointsとbind jointsが同じオブジェクトではない。
+- メインの脚RP IK handleが存在している。
