@@ -53,7 +53,7 @@ It creates:
 
 1. Open Maya.
 2. Make sure the main leg IK setup already exists.
-3. Make sure the reverse foot pivot hierarchy already exists.
+3. Make sure the reverse foot pivot hierarchy already exists and each of them are positioned appropriately.
 4. Make sure the foot controller has all required attributes.
 5. Open the script in the Script Editor or load it into Maya's Python environment.
 6. Run:
