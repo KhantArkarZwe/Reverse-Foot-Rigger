@@ -4,13 +4,6 @@ A Maya Python tool that creates a reverse foot rig setup using utility nodes, IK
 
 The tool was built to automate the node network for foot roll, banking, toe tap, toe sway, and heel sway after the main leg IK system already exists.
 
-## Demo
-
-Add demo reel / tool video link here:
-
-```text
-https://youtu.be/your-demo-link
-```
 
 ## Main Features
 
@@ -66,7 +59,7 @@ It creates:
 6. Run:
 
 ```python
-openUI()
+metaTools_ReverseFootRigger.openUI()
 ```
 
 7. In the UI, fill in:
