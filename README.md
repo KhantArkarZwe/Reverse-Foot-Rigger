@@ -214,4 +214,5 @@ The tool will stop if a generated node name already exists.
 
 ## Author
 
-Kang — Rigging / Technical Artist
+KhantArkarZwe — Rigging / Technical Artist
+Gmail: khantarkarzwe@gmail.com
