@@ -211,19 +211,6 @@ The tool will stop if a generated node name already exists.
 - There is no automatic rollback if the build fails halfway.
 - There is no delete/rebuild function yet.
 
-## File Structure Suggestion
-
-Recommended GitHub layout:
-
-```text
-Reverse-Foot-Rigger/
-├── README.md
-├── naming_convention.md
-├── metaTools_ReverseFootRigger.py
-└── media/
-    ├── ui_screenshot.png
-    └── demo.gif
-```
 
 ## Author
 
